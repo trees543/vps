@@ -9,10 +9,11 @@ const { dbQuery, dbTransaction } = require('./lib/db/dbQuery');
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static('dist'))
 
-app.get('/', (req, res) => {
-  res.send("Nice");
-});
+// app.get('/', (req, res) => {
+//   res.send("Nice");
+// });
 
 app.get('/api/decisions', async (req, res) => {
   const data = await dbQuery("SELECT * FROM decisions");
